@@ -39,7 +39,11 @@ export function Projects() {
                 {project.period && (
                   <div className="flex gap-3">
                     <dt className="w-16 shrink-0 text-muted">제작 기간</dt>
-                    <dd className="text-ink">{project.period}</dd>
+                    <dd className="text-ink">
+                      {project.period.map((p) => (
+                        <div key={p}>{p}</div>
+                      ))}
+                    </dd>
                   </div>
                 )}
                 {project.headcount && (
