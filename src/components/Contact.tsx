@@ -6,6 +6,10 @@ export function Contact() {
     <Section id="contact" title="Contact Me">
       <dl className="space-y-4 text-lg">
         <div className="flex flex-wrap gap-x-4">
+          <dt className="font-display w-24 font-bold text-navy">Phone</dt>
+          <dd className="text-ink">{profile.phone}</dd>
+        </div>
+        <div className="flex flex-wrap gap-x-4">
           <dt className="font-display w-24 font-bold text-navy">Email</dt>
           <dd>
             <a

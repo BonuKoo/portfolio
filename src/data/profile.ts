@@ -1,6 +1,7 @@
 export const profile = {
   name: "구본우",
   role: "Backend Developer",
+  phone: "010-4184-1156",
   email: "evlogiaseio@gmail.com",
   github: "https://github.com/BonuKoo",
   githubHandle: "github.com/BonuKoo",
@@ -14,7 +15,7 @@ export const profile = {
 export const sections = [
   { id: "introduction", label: "Introduction" },
   { id: "skillset", label: "SkillSet" },
-  { id: "portfolio", label: "Portfolio" },
+  { id: "portfolio", label: "Project" },
   { id: "contact", label: "Contact" },
 ] as const;
 

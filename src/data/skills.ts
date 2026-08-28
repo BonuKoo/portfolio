@@ -59,6 +59,7 @@ export const skillGroups: SkillGroup[] = [
       [
         { label: "GitHub", color: "181717", logo: "github" },
         { label: "Vercel", color: "000000", logo: "vercel" },
+        { label: "Claude Code", color: "D97757", logo: "claude" },
       ],
     ],
   },

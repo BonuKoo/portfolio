@@ -3,7 +3,7 @@ import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <Section id="portfolio" title="Portfolio">
+    <Section id="portfolio" title="Project">
       <div className="space-y-8">
         {projects.map((project) => (
           <article
