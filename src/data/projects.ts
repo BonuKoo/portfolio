@@ -33,25 +33,24 @@ export const projects: Project[] = [
     image: "/projects/bonapetit.png",
     period: ["2024.09 - 2024.10"],
     headcount: "3인",
-    // 카드/상세 페이지에서는 당장 안 씀 — 상세 페이지 본문을 직접 작성할 때 참고용으로 남겨둠
-    stack: [
-      "HTML",
-      "JavaScript",
-      "Thymeleaf",
-      "Vue",
-      "Bootstrap",
-      "Java",
-      "Spring Boot",
-      "Spring Data JPA",
-      "MyBatis",
-      "MySQL",
-      "Redis",
-      "OAuth2 (Kakao/Naver/Google)",
-      "WebSocket",
-      "AWS",
-      "Jenkins",
-    ],
     github: "https://github.com/BonuKoo/Bonapetit",
+    detail: {
+      overview:
+        "근처에 사는 사람들끼리 간단하게 소모임을 만들 수 있는 커뮤니케이션 서비스입니다.",
+      note: "기능별 상세 설명은 정리되는 대로 추가할 예정입니다.",
+      sections: [
+        {
+          heading: "기술 스택",
+          items: [
+            { text: "프론트엔드", sub: ["HTML, JavaScript, Thymeleaf, Vue, Bootstrap"] },
+            { text: "백엔드", sub: ["Java, Spring Boot, Spring Data JPA, MyBatis"] },
+            { text: "데이터베이스", sub: ["MySQL, Redis"] },
+            { text: "기타", sub: ["OAuth2 (Kakao/Naver/Google), WebSocket"] },
+            { text: "인프라", sub: ["AWS, Jenkins"] },
+          ],
+        },
+      ],
+    },
   },
   {
     id: "bookstore",
