@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { profile } from "@/data/profile";
-import { projects, type DetailItem, type DetailSection } from "@/data/projects";
+import { projects, type DetailGroup, type DetailItem, type DetailSection } from "@/data/projects";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ id: project.id }));
@@ -44,15 +44,39 @@ function DetailItemLine({ item }: { item: DetailItem }) {
   );
 }
 
+function DetailItemList({ items }: { items: DetailItem[] }) {
+  return (
+    <ul className="mt-3 list-disc space-y-2 pl-5">
+      {items.map((item, i) => (
+        <DetailItemLine key={i} item={item} />
+      ))}
+    </ul>
+  );
+}
+
+function DetailGroupBlock({ group }: { group: DetailGroup }) {
+  return (
+    <div className="mt-5">
+      <h3 className="text-sm font-bold text-navy">{group.label}</h3>
+      <DetailItemList items={group.items} />
+    </div>
+  );
+}
+
 function DetailSectionBlock({ section }: { section: DetailSection }) {
   return (
     <section className="mt-10">
       <h2 className="font-display text-lg font-bold text-navy">{section.heading}</h2>
-      <ul className="mt-3 list-disc space-y-2 pl-5">
-        {section.items.map((item, i) => (
-          <DetailItemLine key={i} item={item} />
-        ))}
-      </ul>
+
+      {section.items && <DetailItemList items={section.items} />}
+
+      {section.groups && (
+        <div className="mt-1 border-l-2 border-line pl-5">
+          {section.groups.map((group) => (
+            <DetailGroupBlock key={group.label} group={group} />
+          ))}
+        </div>
+      )}
 
       {section.images && (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
