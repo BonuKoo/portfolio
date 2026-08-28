@@ -57,6 +57,7 @@ export const projects: Project[] = [
     id: "bookstore",
     title: "BookStore",
     summary: "도서 판매 e-commerce 주제 프로젝트입니다.",
+    image: "/projects/bookstore/book-list.png",
     period: ["2024.07 - 2024.08", "2025.08 - 2025.09"],
     headcount: "1인",
     stack: ["Java 21", "Spring Boot", "Spring Security", "JPA", "QueryDSL", "MySQL"],
