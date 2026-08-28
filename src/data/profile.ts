@@ -1,7 +1,6 @@
 export const profile = {
   name: "구본우",
   role: "Backend Developer",
-  location: "서울특별시",
   email: "evlogiaseio@gmail.com",
   github: "https://github.com/BonuKoo",
   githubHandle: "github.com/BonuKoo",
@@ -9,7 +8,7 @@ export const profile = {
   greeting: "안녕하세요.\n신입 백엔드 개발자\n구본우입니다.",
   intro:
     "꾸준하게 공부하고 발전하는 것을 좋아합니다.\n새로운 기술을 적용하거나, 비교 및 실험을 해보며 성능을 개선하는 것을 좋아합니다.",
-  motto: "직접 만들어 실패해보고, 수치로 확인한 뒤에 결정한다.",
+  motto: "기록은 영원하다.",
 } as const;
 
 export const sections = [
