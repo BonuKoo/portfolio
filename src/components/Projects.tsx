@@ -17,7 +17,7 @@ export function Projects() {
                 <img
                   src={project.image}
                   alt={`${project.title} 스크린샷`}
-                  className="aspect-video w-full rounded border border-line object-cover"
+                  className="aspect-video w-full rounded border border-line object-cover object-top"
                 />
               ) : (
                 <div className="flex aspect-video w-full items-center justify-center rounded border border-dashed border-line text-xs text-muted">
