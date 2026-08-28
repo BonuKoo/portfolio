@@ -16,7 +16,25 @@ export const projects: Project[] = [
     title: "Bonapetit",
     summary: "근처에 사는 사람들끼리 간단하게 소모임을 만들 수 있는 커뮤니케이션 서비스입니다.",
     image: "/projects/bonapetit.png",
-    // TODO: 제작 기간 / 제작 인원 / 기술 스택 확인 후 채우기
+    period: "2024.09 - 2024.10",
+    // TODO: 제작 인원 확인 후 채우기
+    stack: [
+      "HTML",
+      "JavaScript",
+      "Thymeleaf",
+      "Vue",
+      "Bootstrap",
+      "Java",
+      "Spring Boot",
+      "Spring Data JPA",
+      "MyBatis",
+      "MySQL",
+      "Redis",
+      "OAuth2 (Kakao/Naver/Google)",
+      "WebSocket",
+      "AWS",
+      "Jenkins",
+    ],
     github: "https://github.com/BonuKoo/Bonapetit",
   },
   {
