@@ -50,19 +50,6 @@ export function Projects() {
                 )}
               </dl>
 
-              {project.stack && (
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded-full border border-line px-3 py-1 text-xs text-muted"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
               {project.github && (
                 <a
                   href={project.github}

@@ -17,7 +17,8 @@ export const projects: Project[] = [
     summary: "근처에 사는 사람들끼리 간단하게 소모임을 만들 수 있는 커뮤니케이션 서비스입니다.",
     image: "/projects/bonapetit.png",
     period: "2024.09 - 2024.10",
-    // TODO: 제작 인원 확인 후 채우기
+    headcount: "3인",
+    // 카드/상세 페이지에서는 당장 안 씀 — 상세 페이지 본문을 직접 작성할 때 참고용으로 남겨둠
     stack: [
       "HTML",
       "JavaScript",

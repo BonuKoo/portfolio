@@ -59,16 +59,6 @@ export default async function ProjectDetailPage(props: PageProps<"/projects/[id]
         )}
       </dl>
 
-      {project.stack && (
-        <ul className="mt-4 flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <li key={tech} className="rounded-full border border-line px-3 py-1 text-xs text-muted">
-              {tech}
-            </li>
-          ))}
-        </ul>
-      )}
-
       <p className="mt-8 leading-8 text-ink">{project.summary}</p>
       <p className="mt-4 text-sm text-muted">자세한 설명은 정리되는 대로 추가할 예정입니다.</p>
 
