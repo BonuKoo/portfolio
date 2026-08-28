@@ -23,6 +23,8 @@ export const skillGroups: SkillGroup[] = [
       { label: "QueryDSL", color: navy },
       { label: "MyBatis", color: navy },
       { label: "React", color: "61DAFB", logo: "react", logoColor: "black" },
+      { label: "HTML", color: "E34F26", logo: "html5" },
+      { label: "CSS", color: "1572B6", logo: "css3" },
     ],
   },
   {
@@ -30,6 +32,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { label: "MySQL", color: "4479A1", logo: "mysql" },
       { label: "RabbitMQ", color: "FF6600", logo: "rabbitmq" },
+      { label: "Redis", color: "DC382D", logo: "redis" },
     ],
   },
   {
@@ -40,6 +43,8 @@ export const skillGroups: SkillGroup[] = [
       { label: "Docker", color: "2496ED", logo: "docker" },
       { label: "WildFly", color: navy },
       { label: "Vercel", color: "000000", logo: "vercel" },
+      { label: "Jenkins", color: "D24939", logo: "jenkins" },
+      { label: "AWS", color: "232F3E", logo: "amazonaws" },
     ],
   },
 ];
