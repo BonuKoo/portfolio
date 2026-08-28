@@ -29,10 +29,6 @@ export function Contact() {
             </a>
           </dd>
         </div>
-        <div className="flex flex-wrap gap-x-4">
-          <dt className="font-display w-24 font-bold text-navy">Location</dt>
-          <dd className="text-ink">{profile.location}</dd>
-        </div>
       </dl>
     </Section>
   );
