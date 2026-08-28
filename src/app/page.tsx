@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div id="top">
       <Sidebar />
-      <div className="lg:pl-[19rem]">
+      <div className="pl-40 sm:pl-56 md:pl-64 lg:pl-[19rem]">
         <main>
           <Introduction />
           <Skills />

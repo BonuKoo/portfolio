@@ -7,61 +7,76 @@ export function Sidebar() {
   const [active, setActive] = useState<string>(sections[0].id);
 
   useEffect(() => {
-    const targets = sections
-      .map((s) => document.getElementById(s.id))
-      .filter((el): el is HTMLElement => el !== null);
+    // 화면 상단에서 40% 지점에 걸린 섹션을 현재 섹션으로 본다.
+    // 마지막 섹션은 그 지점까지 올라오지 못한 채 문서가 끝나므로, 바닥에 닿으면 무조건 활성화한다.
+    let frame = 0;
+    const compute = () => {
+      frame = 0;
+      const doc = document.documentElement;
+      if (window.scrollY + window.innerHeight >= doc.scrollHeight - 4) {
+        setActive(sections[sections.length - 1].id);
+        return;
+      }
+      const line = window.scrollY + window.innerHeight * 0.4;
+      let current: string = sections[0].id;
+      for (const s of sections) {
+        const el = document.getElementById(s.id);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= line) current = s.id;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (frame === 0) frame = requestAnimationFrame(compute);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-45% 0px -50% 0px" },
-    );
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    compute();
 
-    targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    return () => {
+      if (frame !== 0) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-navy text-navy-mute lg:fixed lg:inset-y-0 lg:left-0 lg:z-auto lg:flex lg:w-[19rem] lg:flex-col lg:overflow-y-auto">
-      <div className="flex flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 lg:block lg:px-8 lg:pt-14 lg:pb-0">
+    <header className="fixed inset-y-0 left-0 z-50 flex w-40 flex-col overflow-y-auto bg-navy text-navy-mute sm:w-56 md:w-64 lg:w-[19rem]">
+      <div className="px-4 pt-8 sm:px-6 lg:px-8 lg:pt-14">
         <a href="#top" className="block">
-          <span className="font-display text-xl font-black tracking-tight text-white lg:text-3xl">
+          <span className="font-display block text-lg leading-tight font-black tracking-tight text-white sm:text-2xl lg:text-3xl">
             {profile.name}
           </span>
-          <span className="mt-1 hidden text-xs tracking-[0.2em] text-navy-mute uppercase lg:block">
+          <span className="mt-1 block text-[10px] tracking-[0.2em] text-navy-mute uppercase sm:text-xs">
             {profile.role}
           </span>
         </a>
-
-        <nav className="lg:mt-10">
-          <ul className="-mx-3 flex gap-1 overflow-x-auto px-3 text-sm lg:-mx-8 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0">
-            {sections.map((s) => {
-              const isActive = active === s.id;
-              return (
-                <li key={s.id}>
-                  <a
-                    href={`#${s.id}`}
-                    aria-current={isActive ? "true" : undefined}
-                    className={`font-display block rounded px-3 py-2 whitespace-nowrap transition-colors lg:rounded-none lg:border-l-2 lg:px-8 lg:py-3 ${
-                      isActive
-                        ? "bg-navy-soft text-white lg:border-white"
-                        : "text-navy-mute hover:text-white lg:border-transparent lg:hover:bg-navy-soft/60"
-                    }`}
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
       </div>
 
-      <div className="mt-auto hidden px-8 pb-10 text-xs leading-6 lg:block">
+      <nav className="mt-8 lg:mt-10">
+        <ul className="flex flex-col text-sm">
+          {sections.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`font-display block border-l-2 px-4 py-3 transition-colors sm:px-6 lg:px-8 ${
+                    isActive
+                      ? "border-navy bg-ivory font-bold text-navy"
+                      : "border-transparent text-navy-mute hover:bg-navy-soft/60 hover:text-white"
+                  }`}
+                >
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      <div className="mt-auto px-4 pt-10 pb-8 text-[11px] leading-6 sm:px-6 lg:px-8 lg:pb-10 lg:text-xs">
         <a href={`mailto:${profile.email}`} className="block break-all hover:text-white">
           {profile.email}
         </a>
@@ -69,7 +84,7 @@ export function Sidebar() {
           href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="block hover:text-white"
+          className="block break-all hover:text-white"
         >
           {profile.githubHandle}
         </a>

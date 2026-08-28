@@ -12,7 +12,7 @@ export function Section({
   return (
     <section
       id={id}
-      className="scroll-mt-20 border-b border-line px-6 py-16 last:border-b-0 sm:px-10 lg:scroll-mt-0 lg:px-16 lg:py-24"
+      className="border-b border-line px-5 py-14 last:border-b-0 sm:px-10 sm:py-16 lg:px-16 lg:py-24"
     >
       <div className="mx-auto max-w-3xl">
         <h2 className="font-display text-4xl font-black tracking-tight text-navy sm:text-5xl">
