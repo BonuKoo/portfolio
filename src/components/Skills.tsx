@@ -19,14 +19,18 @@ export function Skills() {
         {skillGroups.map((group) => (
           <div key={group.title}>
             <h3 className="text-sm font-bold tracking-wide text-muted">{group.title}</h3>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <li key={item.label}>
-                  {/* eslint-disable-next-line @next/next/no-img-element -- shields.io 배지는 외부 SVG라 next/image 최적화 대상이 아님 */}
-                  <img src={badgeUrl(item)} alt={item.label} height={28} className="h-7" />
-                </li>
+            <div className="mt-4 space-y-2">
+              {group.rows.map((row, i) => (
+                <ul key={i} className="flex flex-wrap gap-2">
+                  {row.map((item) => (
+                    <li key={item.label}>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- shields.io 배지는 외부 SVG라 next/image 최적화 대상이 아님 */}
+                      <img src={badgeUrl(item)} alt={item.label} height={28} className="h-7" />
+                    </li>
+                  ))}
+                </ul>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
