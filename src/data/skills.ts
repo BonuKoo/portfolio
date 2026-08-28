@@ -17,7 +17,6 @@ export const skillGroups: SkillGroup[] = [
     title: "사용하는 언어 및 프레임워크",
     items: [
       { label: "Java", color: "007396", logo: "openjdk" },
-      { label: "TypeScript", color: "3178C6", logo: "typescript" },
       { label: "Spring Boot", color: "6DB33F", logo: "springboot" },
       { label: "Spring Framework", color: "6DB33F", logo: "spring" },
       { label: "Spring Security", color: "6DB33F", logo: "spring" },
@@ -34,21 +33,11 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { label: "MySQL", color: "4479A1", logo: "mysql" },
       { label: "RabbitMQ", color: "FF6600", logo: "rabbitmq" },
-      { label: "HikariCP", color: navy },
-      { label: "낙관적 락", color: navy },
-      { label: "비관적 락", color: navy },
-      { label: "조건부 원자 UPDATE", color: navy },
-      { label: "UNIQUE 제약 기반 멱등", color: navy },
-      { label: "Transactional Outbox", color: navy },
-      { label: "DLQ", color: navy },
     ],
   },
   {
     title: "테스트 · 관측",
     items: [
-      { label: "JUnit5", color: "25A162", logo: "junit5" },
-      { label: "MockMvc", color: navy },
-      { label: "실 DB 통합 테스트", color: navy },
       { label: "k6", color: "7D64FF", logo: "k6" },
       { label: "JFR", color: navy },
       { label: "p6spy", color: navy },
@@ -58,10 +47,7 @@ export const skillGroups: SkillGroup[] = [
     title: "개발 도구",
     items: [
       { label: "IntelliJ IDEA", color: "000000", logo: "intellijidea" },
-      { label: "Git", color: "F05032", logo: "git" },
       { label: "GitHub", color: "181717", logo: "github" },
-      { label: "Gradle", color: "02303A", logo: "gradle" },
-      { label: "Maven", color: "C71A36", logo: "apachemaven" },
       { label: "Docker", color: "2496ED", logo: "docker" },
       { label: "WildFly", color: navy },
       { label: "Vercel", color: "000000", logo: "vercel" },
