@@ -17,7 +17,7 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: `${profile.name} — 백엔드 개발자 포트폴리오`,
-  description: profile.greeting,
+  description: profile.greeting.replace(/\n/g, " "),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

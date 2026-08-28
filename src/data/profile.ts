@@ -1,15 +1,14 @@
 export const profile = {
-  // TODO: 실명으로 표기하려면 name 을 바꾸세요. (사이드바 / 메타데이터에 그대로 노출됩니다)
-  name: "BonuKoo",
+  name: "구본우",
   role: "Backend Developer",
   location: "서울특별시",
   email: "evlogiaseio@gmail.com",
   github: "https://github.com/BonuKoo",
   githubHandle: "github.com/BonuKoo",
 
-  greeting: "안녕하세요. 측정하고 나서 결론 내리는 백엔드 개발자입니다.",
+  greeting: "안녕하세요.\n신입 백엔드 개발자\n구본우입니다.",
   intro:
-    "자료로 읽은 정답을 그대로 쓰지 않습니다. 직접 만들어 실패해보고, 수치로 확인한 뒤에 선택합니다. 동시성과 정합성 문제를 다룰 때는 락 전략을 네 가지로 나눠 벤치마크했고, 분산 메시지 파이프라인은 Docker 대신 물리 PC 3대로 구성해 방화벽·절전 같은 진짜 인프라 문제까지 겪어봤습니다.",
+    "꾸준하게 공부하고 발전하는 것을 좋아합니다.\n새로운 기술을 적용하거나, 비교 및 실험을 해보며 성능을 개선하는 것을 좋아합니다.",
   motto: "직접 만들어 실패해보고, 수치로 확인한 뒤에 결정한다.",
 } as const;
 
