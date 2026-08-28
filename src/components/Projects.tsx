@@ -8,52 +8,36 @@ export function Projects() {
         {projects.map((project) => (
           <article
             key={project.id}
-            className="rounded border border-line bg-white p-6 sm:p-8"
+            className="grid grid-cols-1 gap-6 rounded border border-line bg-white p-6 sm:grid-cols-[200px_1fr] sm:p-8"
           >
-            <h3 className="text-xl font-bold text-navy">{project.title}</h3>
-            <p className="font-display mt-1 text-sm tracking-wide text-muted">
-              {project.period}
-            </p>
-            <p className="mt-4 leading-7 text-muted">{project.summary}</p>
-
-            <ul className="mt-5 space-y-2">
-              {project.bullets.map((bullet) => (
-                <li key={bullet} className="relative pl-4 leading-7 text-ink">
-                  <span aria-hidden className="absolute left-0 text-navy">
-                    &middot;
-                  </span>
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <li
-                  key={tech}
-                  className="font-display rounded-full bg-navy/5 px-3 py-1 text-xs tracking-wide text-navy"
+            <div>
+              {project.image ? (
+                // eslint-disable-next-line @next/next/no-img-element -- 정적 스크린샷, next/image 최적화 대상이 아님
+                <img
+                  src={project.image}
+                  alt={`${project.title} 스크린샷`}
+                  className="aspect-square w-full rounded border border-line object-cover"
+                />
+              ) : (
+                <div className="flex aspect-square w-full items-center justify-center rounded border border-dashed border-line text-xs text-muted">
+                  사진 준비 중
+                </div>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display mt-3 block text-center text-sm font-bold text-navy underline underline-offset-4 hover:text-navy-soft"
                 >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-
-            {project.links.length > 0 && (
-              <ul className="mt-6 flex flex-wrap gap-4 border-t border-line pt-4 text-sm">
-                {project.links.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-display font-bold text-navy underline underline-offset-4 hover:text-navy-soft"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+                  GitHub
+                </a>
+              )}
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-navy">{project.title}</h3>
+              <p className="mt-3 leading-7 text-muted">{project.summary}</p>
+            </div>
           </article>
         ))}
       </div>
