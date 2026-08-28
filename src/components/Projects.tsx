@@ -1,55 +1,62 @@
+import { Section } from "@/components/Section";
 import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <section
-      id="projects"
-      className="mx-auto max-w-3xl scroll-mt-20 border-t border-black/10 px-6 py-16 dark:border-white/10"
-    >
-      <h2 className="text-xl font-bold tracking-tight">Projects</h2>
-      <div className="mt-8 flex flex-col gap-10">
+    <Section id="portfolio" title="Portfolio">
+      <div className="space-y-8">
         {projects.map((project) => (
-          <article key={project.id}>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-              <span className="text-sm text-zinc-500">{project.period}</span>
-            </div>
-            <p className="mt-2 leading-7 text-zinc-600 dark:text-zinc-400">
-              {project.summary}
+          <article
+            key={project.id}
+            className="rounded border border-line bg-white p-6 sm:p-8"
+          >
+            <h3 className="text-xl font-bold text-navy">{project.title}</h3>
+            <p className="font-display mt-1 text-sm tracking-wide text-muted">
+              {project.period}
             </p>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+            <p className="mt-4 leading-7 text-muted">{project.summary}</p>
+
+            <ul className="mt-5 space-y-2">
               {project.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+                <li key={bullet} className="relative pl-4 leading-7 text-ink">
+                  <span aria-hidden className="absolute left-0 text-navy">
+                    &middot;
+                  </span>
+                  {bullet}
+                </li>
               ))}
             </ul>
-            <div className="mt-4 flex flex-wrap gap-2">
+
+            <ul className="mt-6 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
-                <span
+                <li
                   key={tech}
-                  className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
+                  className="font-display rounded-full bg-navy/5 px-3 py-1 text-xs tracking-wide text-navy"
                 >
                   {tech}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
+
             {project.links.length > 0 && (
-              <div className="mt-3 flex gap-4 text-sm">
+              <ul className="mt-6 flex flex-wrap gap-4 border-t border-line pt-4 text-sm">
                 {project.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-zinc-900 hover:underline dark:text-zinc-100"
-                  >
-                    {link.label} ↗
-                  </a>
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-display font-bold text-navy underline underline-offset-4 hover:text-navy-soft"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

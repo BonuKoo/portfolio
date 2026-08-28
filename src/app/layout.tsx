@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lato, Noto_Sans_KR } from "next/font/google";
+import { profile } from "@/data/profile";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lato = Lato({
+  variable: "--font-lato",
+  weight: ["400", "700", "900"],
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const notoSansKr = Noto_Sans_KR({
+  variable: "--font-noto-sans-kr",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "이름 — Portfolio",
-  description: "백엔드 개발자 포트폴리오",
+  title: `${profile.name} — 백엔드 개발자 포트폴리오`,
+  description: profile.greeting,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="ko" className={`${lato.variable} ${notoSansKr.variable} h-full`}>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

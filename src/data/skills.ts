@@ -5,41 +5,39 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Language",
-    items: ["Java 17 / 21", "SQL", "TypeScript", "JavaScript"],
-  },
-  {
-    title: "Backend",
+    title: "사용하는 언어 및 프레임워크",
     items: [
+      "Java 17 / 21",
       "Spring Boot 3",
       "Spring Framework 6",
       "Spring Security",
-      "MyBatis",
+      "Spring AMQP",
       "JPA / Hibernate",
       "QueryDSL",
-      "Gradle / Maven",
+      "MyBatis",
+      "TypeScript",
+      "React 19",
     ],
   },
   {
-    title: "Database",
+    title: "데이터베이스 · 메시징",
     items: [
       "MySQL",
       "낙관적 / 비관적 락",
       "조건부 원자 UPDATE",
       "UNIQUE 제약 기반 멱등",
       "HikariCP",
+      "RabbitMQ",
+      "Transactional Outbox",
+      "DLQ",
     ],
   },
   {
-    title: "Infra / Messaging",
-    items: ["RabbitMQ", "Transactional Outbox", "DLQ", "Docker", "WildFly", "Vercel"],
+    title: "테스트 · 관측",
+    items: ["JUnit 5", "MockMvc", "실 DB 통합 테스트", "k6", "JFR", "p6spy"],
   },
   {
-    title: "Test / 관측",
-    items: ["JUnit 5", "MockMvc", "Testcontainers 없는 실 DB 통합테스트", "k6", "JFR", "p6spy"],
-  },
-  {
-    title: "Frontend",
-    items: ["React 19", "Next.js", "Vite", "Tailwind CSS", "Vanilla JS"],
+    title: "개발 도구",
+    items: ["IntelliJ", "Git / GitHub", "Gradle", "Maven", "Docker", "WildFly", "Vercel"],
   },
 ];

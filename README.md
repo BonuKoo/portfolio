@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+백엔드 개발자 포트폴리오 사이트. Next.js App Router 기반 정적 페이지 한 장이며, Vercel 에 배포합니다.
 
-First, run the development server:
+레이아웃은 좌측 고정 사이드바 + 단순 섹션 구성(Introduction / SkillSet / Portfolio / Contact)이고,
+색상은 딥 네이비(#16233a) 사이드바 + 아이보리(#fffaf0) 본문입니다.
+
+## 실행
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # 정적 빌드 확인
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 내용 수정
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+화면 컴포넌트를 건드릴 필요 없이 `src/data` 의 세 파일만 고치면 됩니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 파일 | 내용 |
+|---|---|
+| `src/data/profile.ts` | 이름·역할·연락처, 인사말, 좌우명, Overall Experiences 타임라인, 네비게이션 섹션 |
+| `src/data/projects.ts` | Portfolio 섹션의 프로젝트 카드 (제목·기간·요약·상세 항목·기술 스택·링크) |
+| `src/data/skills.ts` | SkillSet 섹션의 그룹별 태그 |
 
-## Learn More
+## 구조
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/            layout.tsx (폰트/메타데이터), page.tsx (섹션 조립), globals.css (색상 토큰)
+  components/     Sidebar(스크롤 스파이) · Section(공통 헤딩) · Introduction · Skills · Projects · Contact
+  data/           위 표의 세 파일
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 스택
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Vercel

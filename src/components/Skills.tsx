@@ -1,23 +1,18 @@
+import { Section } from "@/components/Section";
 import { skillGroups } from "@/data/skills";
 
 export function Skills() {
   return (
-    <section
-      id="skills"
-      className="mx-auto max-w-3xl scroll-mt-20 border-t border-black/10 px-6 py-16 dark:border-white/10"
-    >
-      <h2 className="text-xl font-bold tracking-tight">Skills</h2>
-      <div className="mt-8 grid gap-8 sm:grid-cols-2">
+    <Section id="skillset" title="SkillSet">
+      <div className="space-y-10">
         {skillGroups.map((group) => (
           <div key={group.title}>
-            <h3 className="text-sm font-semibold text-zinc-500">
-              {group.title}
-            </h3>
-            <ul className="mt-3 flex flex-wrap gap-2">
+            <h3 className="text-sm font-bold tracking-wide text-muted">{group.title}</h3>
+            <ul className="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <li
                   key={item}
-                  className="rounded-full border border-black/10 px-3 py-1 text-sm text-zinc-700 dark:border-white/10 dark:text-zinc-300"
+                  className="rounded border border-line bg-white px-3 py-1.5 text-sm text-ink"
                 >
                   {item}
                 </li>
@@ -26,6 +21,6 @@ export function Skills() {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
