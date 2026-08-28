@@ -19,9 +19,6 @@ export const skillGroups: SkillGroup[] = [
       { label: "Java", color: "007396", logo: "openjdk" },
       { label: "Spring Boot", color: "6DB33F", logo: "springboot" },
       { label: "Spring Framework", color: "6DB33F", logo: "spring" },
-      { label: "Spring Security", color: "6DB33F", logo: "spring" },
-      { label: "Spring AMQP", color: "6DB33F", logo: "spring" },
-      { label: "Hibernate", color: "59666C", logo: "hibernate" },
       { label: "JPA", color: navy },
       { label: "QueryDSL", color: navy },
       { label: "MyBatis", color: navy },
@@ -33,14 +30,6 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { label: "MySQL", color: "4479A1", logo: "mysql" },
       { label: "RabbitMQ", color: "FF6600", logo: "rabbitmq" },
-    ],
-  },
-  {
-    title: "테스트 · 관측",
-    items: [
-      { label: "k6", color: "7D64FF", logo: "k6" },
-      { label: "JFR", color: navy },
-      { label: "p6spy", color: navy },
     ],
   },
   {
